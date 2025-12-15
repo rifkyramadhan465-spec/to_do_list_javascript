@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>To‑Do List Sederhana</title>
+  <style>
+    body { font-family: Arial; max-width: 400px; margin: 30px auto; }
+    input { width: 70%; padding: 8px; }
+    button { padding: 8px 12px; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h2>To-Do List</h2>
+
+  <input id="taskInput" type="text" placeholder="Tulis tugas..." />
+  <button onclick="addTask()">Tambah</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const text = input.value.trim();
+
+      if (text === "") return alert("Tugas tidak boleh kosong");
+
+      const li = document.createElement("li");
+      li.textContent = text;
+
+      li.onclick = function() {
+        li.remove();
+      };
+
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
